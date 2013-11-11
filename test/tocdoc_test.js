@@ -27,22 +27,22 @@ exports.tocdoc = {
     // setup here if necessary
     done();
   },
-  default_options: function(test) {
+  singleFile: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var actual = grunt.file.read('tmp/singleFile');
+    var expected = grunt.file.read('test/expected/singleFile');
+    test.equal(actual, expected, 'should convert a single file into a tocdoc.');
 
     test.done();
   },
-  custom_options: function(test) {
+  joinFiles: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    var actual = grunt.file.read('tmp/joinFiles');
+    var expected = grunt.file.read('test/expected/joinFiles');
+    test.equal(actual, expected, 'should join multiple files into a single tocdoc.');
 
     test.done();
-  },
+  }
 };

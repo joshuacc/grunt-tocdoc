@@ -39,5 +39,10 @@
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+  "dependencies": {
+    "marked": "~0.2.10",
+    "toc": "~0.3.0",
+    "lodash": "~2.2.1"
+  }
 }

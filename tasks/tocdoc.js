@@ -8,22 +8,29 @@
 
 'use strict';
 
+var marked = require('marked');
+var _ = require('lodash');
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
   grunt.registerMultiTask('tocdoc', 'Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from a Markdown file.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
+    // Establish template context object.
+    var context = {
+      // Merge task-specific and/or target-specific options with these defaults.
+      options: this.options({})
+    };
+
+    // Read and compile TocDoc template
+    var tmplHTML = grunt.file.read(__dirname + '/tocdoc.html');
+    var tmpl = _.template(tmplHTML);
 
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
+      // Convert and join specified files.
+      context.compiledSrc = f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
@@ -33,14 +40,13 @@ module.exports = function(grunt) {
         }
       }).map(function(filepath) {
         // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+        var md = grunt.file.read(filepath);
+        return marked(md);
+      }).join('');
 
-      // Handle options.
-      src += options.punctuation;
-
+      var finalHTML = tmpl(context);
       // Write the destination file.
-      grunt.file.write(f.dest, src);
+      grunt.file.write(f.dest, finalHTML);
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
