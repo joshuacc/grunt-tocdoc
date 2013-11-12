@@ -10,6 +10,7 @@
 
 var marked = require('marked');
 var _ = require('lodash');
+var toc = require('toc');
 
 module.exports = function(grunt) {
 
@@ -43,6 +44,9 @@ module.exports = function(grunt) {
         var md = grunt.file.read(filepath);
         return marked(md);
       }).join('');
+
+      var headers = toc.anchorize(context.compiledSrc).headers;
+      context.table = toc.toc(headers);
 
       var finalHTML = tmpl(context);
       // Write the destination file.
