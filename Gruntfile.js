@@ -31,19 +31,24 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     tocdoc: {
       singleFile: {
-        options: {
-        },
         files: {
           'tmp/singleFile': 'test/fixtures/testing'
         },
       },
       joinFiles: {
-        options: {
-        },
         files: {
           'tmp/joinFiles': ['test/fixtures/testing', 'test/fixtures/123']
         },
-      }
+      },
+      withOptions: {
+        options: {
+          title: 'My Title'
+        },
+        files: {
+          'tmp/withOptions': 'test/fixtures/testing'
+        },
+      },
+
     },
 
     // Unit tests.

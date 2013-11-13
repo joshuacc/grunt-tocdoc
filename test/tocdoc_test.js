@@ -44,5 +44,15 @@ exports.tocdoc = {
     test.equal(actual, expected, 'should join multiple files into a single tocdoc.');
 
     test.done();
+  },
+  withOptions: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/withOptions');
+    var expected = grunt.file.read('test/expected/withOptions');
+    test.equal(actual, expected, 'should merge options into tocdoc output.');
+
+    test.done();
   }
+
 };

@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+<title>My Title</title>
+</head>
+<body>
+<div class="toc"><ul><li><a href="#second-level-heading">Second Level Heading</a><ul><li><a href="#third-level-heading">Third Level Heading</a></li></ul></li></ul></div>
+<h1 id="first-level-heading">First Level Heading</h1>
+<h2 id="second-level-heading">Second Level Heading</h2>
+<h3 id="third-level-heading">Third Level Heading</h3>
+<p>A paragraph.</p>
+
+</body>
+</html>
