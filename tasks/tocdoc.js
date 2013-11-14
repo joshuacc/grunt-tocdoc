@@ -48,8 +48,9 @@ module.exports = function(grunt) {
         return marked(md);
       }).join('');
 
-      var headers = toc.anchorize(context.compiledSrc).headers;
-      context.table = toc.toc(headers);
+      var anchorized = toc.anchorize(context.compiledSrc);
+      context.table = toc.toc(anchorized.headers);
+      context.compiledSrc = anchorized.html;
 
       var finalHTML = tmpl(context);
       // Write the destination file.
