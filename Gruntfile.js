@@ -42,12 +42,17 @@ module.exports = function(grunt) {
       },
       withOptions: {
         options: {
-          title: 'My Title'
+          title: 'My Title',
+          cssFilePath: 'tmp/mycss/tocdoc.css',
+          cssUrl: 'mycss/tocdoc.css'
         },
         files: {
           'tmp/withOptions': 'test/fixtures/testing'
         },
       },
+      realDocs: {
+        files: { 'index.html': 'README.md' }
+      }
 
     },
 

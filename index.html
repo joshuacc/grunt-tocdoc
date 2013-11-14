@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="tocdoc.css" />
+</head>
+<body>
+<div class="toc"><ul><li><a href="#getting-started">Getting Started</a></li><li><a href="#the-tocdoc-task">The &quot;tocdoc&quot; task</a><ul><li><a href="#overview">Overview</a></li><li><a href="#options">Options</a><ul><li><a href="#options.separator">options.separator</a></li><li><a href="#options.punctuation">options.punctuation</a></li></ul></li><li><a href="#usage-examples">Usage Examples</a><ul><li><a href="#default-options">Default Options</a></li><li><a href="#custom-options">Custom Options</a></li></ul></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#release-history">Release History</a></li></ul></div>
+<h1 id="grunt-tocdoc">grunt-tocdoc</h1>
+<blockquote>
+<p>Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from a Markdown file.</p>
+</blockquote>
+<h2 id="getting-started">Getting Started</h2>
+<p>This plugin requires Grunt <code>~0.4.1</code></p>
+<p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins. Once you&#39;re familiar with that process, you may install this plugin with this command:</p>
+<pre><code class="lang-shell">npm install grunt-tocdoc --save-dev</code></pre>
+<p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
+<pre><code class="lang-js">grunt.loadNpmTasks(&#39;grunt-tocdoc&#39;);</code></pre>
+<h2 id="the-tocdoc-task">The &quot;tocdoc&quot; task</h2>
+<h3 id="overview">Overview</h3>
+<p>In your project&#39;s Gruntfile, add a section named <code>tocdoc</code> to the data object passed into <code>grunt.initConfig()</code>.</p>
+<pre><code class="lang-js">grunt.initConfig({
+  tocdoc: {
+    options: {
+      // Task-specific options go here.
+    },
+    your_target: {
+      // Target-specific file lists and/or options go here.
+    },
+  },
+})</code></pre>
+<h3 id="options">Options</h3>
+<h4 id="options-separator">options.separator</h4>
+<p>Type: <code>String</code>
+Default value: <code>&#39;,  &#39;</code></p>
+<p>A string value that is used to do something with whatever.</p>
+<h4 id="options-punctuation">options.punctuation</h4>
+<p>Type: <code>String</code>
+Default value: <code>&#39;.&#39;</code></p>
+<p>A string value that is used to do something else with whatever else.</p>
+<h3 id="usage-examples">Usage Examples</h3>
+<h4 id="default-options">Default Options</h4>
+<p>In this example, the default options are used to do something with whatever. So if the <code>testing</code> file has the content <code>Testing</code> and the <code>123</code> file had the content <code>1 2 3</code>, the generated result would be <code>Testing, 1 2 3.</code></p>
+<pre><code class="lang-js">grunt.initConfig({
+  tocdoc: {
+    options: {},
+    files: {
+      &#39;dest/default_options&#39;: [&#39;src/testing&#39;, &#39;src/123&#39;],
+    },
+  },
+})</code></pre>
+<h4 id="custom-options">Custom Options</h4>
+<p>In this example, custom options are used to do something else with whatever else. So if the <code>testing</code> file has the content <code>Testing</code> and the <code>123</code> file had the content <code>1 2 3</code>, the generated result in this case would be <code>Testing: 1 2 3 !!!</code></p>
+<pre><code class="lang-js">grunt.initConfig({
+  tocdoc: {
+    options: {
+      separator: &#39;: &#39;,
+      punctuation: &#39; !!!&#39;,
+    },
+    files: {
+      &#39;dest/default_options&#39;: [&#39;src/testing&#39;, &#39;src/123&#39;],
+    },
+  },
+})</code></pre>
+<h2 id="contributing">Contributing</h2>
+<p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p>
+<h2 id="release-history">Release History</h2>
+<p><em>(Nothing yet)</em></p>
+
+</body>
+</html>

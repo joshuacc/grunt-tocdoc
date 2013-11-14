@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>My Title</title>
+<link rel="stylesheet" type="text/css" href="mycss/tocdoc.css" />
 </head>
 <body>
 <div class="toc"><ul><li><a href="#second-level-heading">Second Level Heading</a><ul><li><a href="#third-level-heading">Third Level Heading</a></li></ul></li></ul></div>

@@ -21,7 +21,10 @@ module.exports = function(grunt) {
     // Establish template context object.
     var context = {
       // Merge task-specific and/or target-specific options with these defaults.
-      options: this.options({})
+      options: this.options({
+        cssFilePath: 'tocdoc.css',
+        cssUrl: 'tocdoc.css'
+      })
     };
 
     // Read and compile TocDoc template
@@ -51,6 +54,8 @@ module.exports = function(grunt) {
       var finalHTML = tmpl(context);
       // Write the destination file.
       grunt.file.write(f.dest, finalHTML);
+
+      grunt.file.copy(__dirname + '/tocdoc.css', context.options.cssFilePath);
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
