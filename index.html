@@ -5,11 +5,12 @@
 <link rel="stylesheet" type="text/css" href="tocdoc.css" />
 </head>
 <body>
-<div class="toc"><ul><li><a href="#getting-started">Getting Started</a></li><li><a href="#the-tocdoc-task">The &quot;tocdoc&quot; task</a><ul><li><a href="#overview">Overview</a></li><li><a href="#options">Options</a><ul><li><a href="#options.cssfilepath">options.cssFilePath</a></li><li><a href="#options.cssurl">options.cssUrl</a></li></ul></li><li><a href="#usage-examples">Usage Examples</a><ul><li><a href="#default-options">Default Options</a></li><li><a href="#custom-options">Custom Options</a></li></ul></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#release-history">Release History</a></li></ul></div>
+<div class="toc"><ul><li><a href="#getting-started">Getting Started</a></li><li><a href="#the-tocdoc-task">The &quot;tocdoc&quot; task</a><ul><li><a href="#overview">Overview</a></li><li><a href="#options">Options</a><ul><li><a href="#options.cssfilepath">options.cssFilePath</a></li><li><a href="#options.cssurl">options.cssUrl</a></li></ul></li><li><a href="#usage-examples">Usage Examples</a><ul><li><a href="#default-options">Default Options</a></li><li><a href="#custom-options">Custom Options</a></li></ul></li><li><a href="#using-bootstrap-styles">Using Bootstrap styles</a></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#release-history">Release History</a></li></ul></div>
 <h1 id="grunt-tocdoc">grunt-tocdoc</h1>
 <blockquote>
-<p>Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown.</p>
+<p>Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown. Example output available here.</p>
 </blockquote>
+<p><a href="http://joshuacc.github.io/grunt-tocdoc/">See how this README looks as a tocdoc.</a></p>
 <h2 id="getting-started"><a href="#getting-started" name="getting-started">Getting Started</a></h2>
 <p>This plugin requires Grunt <code>~0.4.1</code></p>
 <p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins. Once you&#39;re familiar with that process, you may install this plugin with this command:</p>
@@ -66,6 +67,12 @@ Default value: <code>&#39;tocdoc.css&#39;</code></p>
     }
   }
 })</code></pre>
+<h3 id="using-bootstrap-styles"><a href="#using-bootstrap-styles" name="using-bootstrap-styles">Using Bootstrap styles</a></h3>
+<p>Because grunt-tocdoc is based on Bootstrap, you have access to a wide range of CSS components you can use as needed. For instance, if you want to create a download button you can do so like this.</p>
+<pre><code class="lang-html">&lt;a class=&quot;btn btn-primary btn-large&quot;&gt;Download AwesomeLibrary.js&lt;/a&gt;</code></pre>
+<p>And it will look like this:</p>
+<p><a class="btn btn-primary btn-large">Download AwesomeLibrary.js</a></p>
+<p>(Example is only visible on the <a href="http://joshuacc.github.io/grunt-tocdoc/#using-bootstrap-styles">tocdoc version of the readme</a>.)</p>
 <h2 id="contributing"><a href="#contributing" name="contributing">Contributing</a></h2>
 <p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p>
 <h2 id="release-history"><a href="#release-history" name="release-history">Release History</a></h2>

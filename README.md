@@ -1,6 +1,8 @@
 # grunt-tocdoc
 
-> Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown.
+> Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown. Example output available here.
+
+[See how this README looks as a tocdoc.](http://joshuacc.github.io/grunt-tocdoc/)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -85,6 +87,20 @@ grunt.initConfig({
   }
 })
 ```
+
+### Using Bootstrap styles
+
+Because grunt-tocdoc is based on Bootstrap, you have access to a wide range of CSS components you can use as needed. For instance, if you want to create a download button you can do so like this.
+
+```html
+<a class="btn btn-primary btn-large">Download AwesomeLibrary.js</a>
+```
+
+And it will look like this:
+
+<a class="btn btn-primary btn-large">Download AwesomeLibrary.js</a>
+
+(Example is only visible on the [tocdoc version of the readme](http://joshuacc.github.io/grunt-tocdoc/#using-bootstrap-styles).)
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
