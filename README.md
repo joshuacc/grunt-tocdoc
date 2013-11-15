@@ -1,6 +1,6 @@
 # grunt-tocdoc
 
-> Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from a Markdown file.
+> Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
@@ -28,7 +28,7 @@ grunt.initConfig({
     options: {
       // Task-specific options go here.
     },
-    your_target: {
+    docSite: {
       // Target-specific file lists and/or options go here.
     },
   },
@@ -37,48 +37,52 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.cssFilePath
 Type: `String`
-Default value: `',  '`
+Default value: `'tocdoc.css'`
 
-A string value that is used to do something with whatever.
+The location in the filesystem (relative to your Gruntfile) where the required CSS file will be written.
 
-#### options.punctuation
+#### options.cssUrl
 Type: `String`
-Default value: `'.'`
+Default value: `'tocdoc.css'`
 
-A string value that is used to do something else with whatever else.
+The url where the HTML page should look for its required CSS. This may need to be different than the `cssFilePath` if you are not writing them both to the root of your project.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used to generate API documention from a set of markdown files. So if the `overview.md` and `api.md` files are valid Markdown, then `index.html` will list the overview content first, the api content second, and display a scrollable table of contents on the left-hand side. It will also output a file called `tocdoc.css` side-by-side with your `Gruntfile` to provide the necessary styles for your doc site.
 
 ```js
 grunt.initConfig({
   tocdoc: {
     options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    docSite: {
+      files: {
+        'index.html': ['overview.md', 'api.md'],
+      }
+    }
+  }
 })
 ```
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In this example, custom options are used to specify a different location for the css file because the generated documentation resides in a subdirectory. Note that `cssFilePath` and `cssUrl` are not the same in this case. The file path is relative to the `Gruntfile` while the `cssUrl` is relative to the html page.
 
 ```js
 grunt.initConfig({
   tocdoc: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+        cssFilePath: 'docs/styles.css',
+        cssUrl: 'styles.css'
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    docSite: {
+      files: {
+        'docs/index.html': ['overview.md', 'api.md'],
+      }
+    }
+  }
 })
 ```
 

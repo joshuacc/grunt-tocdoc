@@ -5,10 +5,10 @@
 <link rel="stylesheet" type="text/css" href="tocdoc.css" />
 </head>
 <body>
-<div class="toc"><ul><li><a href="#getting-started">Getting Started</a></li><li><a href="#the-tocdoc-task">The &quot;tocdoc&quot; task</a><ul><li><a href="#overview">Overview</a></li><li><a href="#options">Options</a><ul><li><a href="#options.separator">options.separator</a></li><li><a href="#options.punctuation">options.punctuation</a></li></ul></li><li><a href="#usage-examples">Usage Examples</a><ul><li><a href="#default-options">Default Options</a></li><li><a href="#custom-options">Custom Options</a></li></ul></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#release-history">Release History</a></li></ul></div>
+<div class="toc"><ul><li><a href="#getting-started">Getting Started</a></li><li><a href="#the-tocdoc-task">The &quot;tocdoc&quot; task</a><ul><li><a href="#overview">Overview</a></li><li><a href="#options">Options</a><ul><li><a href="#options.cssfilepath">options.cssFilePath</a></li><li><a href="#options.cssurl">options.cssUrl</a></li></ul></li><li><a href="#usage-examples">Usage Examples</a><ul><li><a href="#default-options">Default Options</a></li><li><a href="#custom-options">Custom Options</a></li></ul></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#release-history">Release History</a></li></ul></div>
 <h1 id="grunt-tocdoc">grunt-tocdoc</h1>
 <blockquote>
-<p>Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from a Markdown file.</p>
+<p>Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown.</p>
 </blockquote>
 <h2 id="getting-started"><a href="#getting-started" name="getting-started">Getting Started</a></h2>
 <p>This plugin requires Grunt <code>~0.4.1</code></p>
@@ -24,43 +24,47 @@
     options: {
       // Task-specific options go here.
     },
-    your_target: {
+    docSite: {
       // Target-specific file lists and/or options go here.
     },
   },
 })</code></pre>
 <h3 id="options"><a href="#options" name="options">Options</a></h3>
-<h4 id="options-separator"><a href="#options.separator" name="options.separator">options.separator</a></h4>
+<h4 id="options-cssfilepath"><a href="#options.cssfilepath" name="options.cssfilepath">options.cssFilePath</a></h4>
 <p>Type: <code>String</code>
-Default value: <code>&#39;,  &#39;</code></p>
-<p>A string value that is used to do something with whatever.</p>
-<h4 id="options-punctuation"><a href="#options.punctuation" name="options.punctuation">options.punctuation</a></h4>
+Default value: <code>&#39;tocdoc.css&#39;</code></p>
+<p>The location in the filesystem (relative to your Gruntfile) where the required CSS file will be written.</p>
+<h4 id="options-cssurl"><a href="#options.cssurl" name="options.cssurl">options.cssUrl</a></h4>
 <p>Type: <code>String</code>
-Default value: <code>&#39;.&#39;</code></p>
-<p>A string value that is used to do something else with whatever else.</p>
+Default value: <code>&#39;tocdoc.css&#39;</code></p>
+<p>The url where the HTML page should look for its required CSS. This may need to be different than the <code>cssFilePath</code> if you are not writing them both to the root of your project.</p>
 <h3 id="usage-examples"><a href="#usage-examples" name="usage-examples">Usage Examples</a></h3>
 <h4 id="default-options"><a href="#default-options" name="default-options">Default Options</a></h4>
-<p>In this example, the default options are used to do something with whatever. So if the <code>testing</code> file has the content <code>Testing</code> and the <code>123</code> file had the content <code>1 2 3</code>, the generated result would be <code>Testing, 1 2 3.</code></p>
+<p>In this example, the default options are used to generate API documention from a set of markdown files. So if the <code>overview.md</code> and <code>api.md</code> files are valid Markdown, then <code>index.html</code> will list the overview content first, the api content second, and display a scrollable table of contents on the left-hand side. It will also output a file called <code>tocdoc.css</code> side-by-side with your <code>Gruntfile</code> to provide the necessary styles for your doc site.</p>
 <pre><code class="lang-js">grunt.initConfig({
   tocdoc: {
     options: {},
-    files: {
-      &#39;dest/default_options&#39;: [&#39;src/testing&#39;, &#39;src/123&#39;],
-    },
-  },
+    docSite: {
+      files: {
+        &#39;index.html&#39;: [&#39;overview.md&#39;, &#39;api.md&#39;],
+      }
+    }
+  }
 })</code></pre>
 <h4 id="custom-options"><a href="#custom-options" name="custom-options">Custom Options</a></h4>
-<p>In this example, custom options are used to do something else with whatever else. So if the <code>testing</code> file has the content <code>Testing</code> and the <code>123</code> file had the content <code>1 2 3</code>, the generated result in this case would be <code>Testing: 1 2 3 !!!</code></p>
+<p>In this example, custom options are used to specify a different location for the css file because the generated documentation resides in a subdirectory. Note that <code>cssFilePath</code> and <code>cssUrl</code> are not the same in this case. The file path is relative to the <code>Gruntfile</code> while the <code>cssUrl</code> is relative to the html page.</p>
 <pre><code class="lang-js">grunt.initConfig({
   tocdoc: {
     options: {
-      separator: &#39;: &#39;,
-      punctuation: &#39; !!!&#39;,
+        cssFilePath: &#39;docs/styles.css&#39;,
+        cssUrl: &#39;styles.css&#39;
     },
-    files: {
-      &#39;dest/default_options&#39;: [&#39;src/testing&#39;, &#39;src/123&#39;],
-    },
-  },
+    docSite: {
+      files: {
+        &#39;docs/index.html&#39;: [&#39;overview.md&#39;, &#39;api.md&#39;],
+      }
+    }
+  }
 })</code></pre>
 <h2 id="contributing"><a href="#contributing" name="contributing">Contributing</a></h2>
 <p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p>
