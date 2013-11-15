@@ -1,6 +1,6 @@
 # grunt-tocdoc
 
-> Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown. Example output available here.
+> Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown.
 
 [See how this README looks as a tocdoc.](http://joshuacc.github.io/grunt-tocdoc/)
 
