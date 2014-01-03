@@ -4,6 +4,8 @@
 
 [See how this README looks as a tocdoc.](http://joshuacc.github.io/grunt-tocdoc/)
 
+[![Code Climate](https://codeclimate.com/github/joshuacc/grunt-tocdoc.png)](https://codeclimate.com/github/joshuacc/grunt-tocdoc)
+
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
 
