@@ -53,6 +53,12 @@ Default value: `'tocdoc.css'`
 
 The url where the HTML page should look for its required CSS. This may need to be different than the `cssFilePath` if you are not writing them both to the root of your project.
 
+#### options.scripts
+Type: `Array`
+Default value: `null`
+
+An array of paths to JavaScript files to load on the generated HTML page. This allows you to do things like let people experiment with your library by just visiting your site and playing in the browser console.
+
 ### Usage Examples
 
 #### Default Options
@@ -79,7 +85,8 @@ grunt.initConfig({
   tocdoc: {
     options: {
         cssFilePath: 'docs/styles.css',
-        cssUrl: 'styles.css'
+        cssUrl: 'styles.css',
+        scripts: ['js/jquery.js', 'js/my.jquery.plugin.js']
     },
     docSite: {
       files: {
@@ -108,8 +115,9 @@ And it will look like this:
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
 
+### 0.1.0
+
+Initial release.
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/joshuacc/grunt-tocdoc/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

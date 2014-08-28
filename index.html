@@ -3,14 +3,16 @@
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="tocdoc.css" />
+
 </head>
 <body>
-<div class="toc"><ul><li><a href="#getting-started">Getting Started</a></li><li><a href="#the-tocdoc-task">The &quot;tocdoc&quot; task</a><ul><li><a href="#overview">Overview</a></li><li><a href="#options">Options</a><ul><li><a href="#options.cssfilepath">options.cssFilePath</a></li><li><a href="#options.cssurl">options.cssUrl</a></li></ul></li><li><a href="#usage-examples">Usage Examples</a><ul><li><a href="#default-options">Default Options</a></li><li><a href="#custom-options">Custom Options</a></li></ul></li><li><a href="#using-bootstrap-styles">Using Bootstrap styles</a></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#release-history">Release History</a></li></ul></div>
+<div class="toc"><ul><li><a href="#getting-started">Getting Started</a></li><li><a href="#the-tocdoc-task">The &quot;tocdoc&quot; task</a><ul><li><a href="#overview">Overview</a></li><li><a href="#options">Options</a><ul><li><a href="#options.cssfilepath">options.cssFilePath</a></li><li><a href="#options.cssurl">options.cssUrl</a></li><li><a href="#options.scripts">options.scripts</a></li></ul></li><li><a href="#usage-examples">Usage Examples</a><ul><li><a href="#default-options">Default Options</a></li><li><a href="#custom-options">Custom Options</a></li></ul></li><li><a href="#using-bootstrap-styles">Using Bootstrap styles</a></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#release-history">Release History</a><ul><li><a href="#0.1.0">0.1.0</a></li></ul></li></ul></div>
 <h1 id="grunt-tocdoc">grunt-tocdoc</h1>
 <blockquote>
 <p>Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from Markdown.</p>
 </blockquote>
 <p><a href="http://joshuacc.github.io/grunt-tocdoc/">See how this README looks as a tocdoc.</a></p>
+<p><a href="https://codeclimate.com/github/joshuacc/grunt-tocdoc"><img src="https://codeclimate.com/github/joshuacc/grunt-tocdoc.png" alt="Code Climate"></a></p>
 <h2 id="getting-started"><a href="#getting-started" name="getting-started">Getting Started</a></h2>
 <p>This plugin requires Grunt <code>~0.4.1</code></p>
 <p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins. Once you&#39;re familiar with that process, you may install this plugin with this command:</p>
@@ -39,6 +41,10 @@ Default value: <code>&#39;tocdoc.css&#39;</code></p>
 <p>Type: <code>String</code>
 Default value: <code>&#39;tocdoc.css&#39;</code></p>
 <p>The url where the HTML page should look for its required CSS. This may need to be different than the <code>cssFilePath</code> if you are not writing them both to the root of your project.</p>
+<h4 id="options-scripts"><a href="#options.scripts" name="options.scripts">options.scripts</a></h4>
+<p>Type: <code>Array</code>
+Default value: <code>null</code></p>
+<p>An array of paths to JavaScript files to load on the generated HTML page. This allows you to do things like let people experiment with your library by just visiting your site and playing in the browser console.</p>
 <h3 id="usage-examples"><a href="#usage-examples" name="usage-examples">Usage Examples</a></h3>
 <h4 id="default-options"><a href="#default-options" name="default-options">Default Options</a></h4>
 <p>In this example, the default options are used to generate API documention from a set of markdown files. So if the <code>overview.md</code> and <code>api.md</code> files are valid Markdown, then <code>index.html</code> will list the overview content first, the api content second, and display a scrollable table of contents on the left-hand side. It will also output a file called <code>tocdoc.css</code> side-by-side with your <code>Gruntfile</code> to provide the necessary styles for your doc site.</p>
@@ -58,7 +64,8 @@ Default value: <code>&#39;tocdoc.css&#39;</code></p>
   tocdoc: {
     options: {
         cssFilePath: &#39;docs/styles.css&#39;,
-        cssUrl: &#39;styles.css&#39;
+        cssUrl: &#39;styles.css&#39;,
+        scripts: [&#39;js/jquery.js&#39;, &#39;js/my.jquery.plugin.js&#39;]
     },
     docSite: {
       files: {
@@ -76,7 +83,9 @@ Default value: <code>&#39;tocdoc.css&#39;</code></p>
 <h2 id="contributing"><a href="#contributing" name="contributing">Contributing</a></h2>
 <p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p>
 <h2 id="release-history"><a href="#release-history" name="release-history">Release History</a></h2>
-<p><em>(Nothing yet)</em></p>
+<h3 id="0-1-0"><a href="#0.1.0" name="0.1.0">0.1.0</a></h3>
+<p>Initial release.</p>
+<p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/joshuacc/grunt-tocdoc/trend.png" alt="Bitdeli Badge"></a></p>
 
 </body>
 </html>

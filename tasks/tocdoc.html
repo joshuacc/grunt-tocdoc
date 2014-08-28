@@ -3,6 +3,9 @@
 <head>
 <title><%= options.title %></title>
 <link rel="stylesheet" type="text/css" href="<%= options.cssUrl %>" />
+<% if (options.scripts) { options.scripts.forEach(function(scriptUrl) { %>
+    <script src="<%= scriptUrl %>"></script>
+<% })} %>
 </head>
 <body>
 <%= table %>

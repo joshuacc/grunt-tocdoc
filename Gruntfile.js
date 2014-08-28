@@ -44,7 +44,8 @@ module.exports = function(grunt) {
         options: {
           title: 'My Title',
           cssFilePath: 'tmp/mycss/tocdoc.css',
-          cssUrl: 'mycss/tocdoc.css'
+          cssUrl: 'mycss/tocdoc.css',
+          scripts: ["js/first.js", "js/second.js"]
         },
         files: {
           'tmp/withOptions': 'test/fixtures/testing'
