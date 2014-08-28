@@ -116,6 +116,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### 0.1.1
+
+Added `scripts` property to support custom JavaScript on the generated HTML page.
+
 ### 0.1.0
 
 Initial release.

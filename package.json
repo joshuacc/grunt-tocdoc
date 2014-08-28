@@ -1,7 +1,7 @@
 {
   "name": "grunt-tocdoc",
   "description": "Grunt plugin to generate table-of-contents based documentation sites (ala Backbone/Underscore) from a Markdown file.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/joshuacc/grunt-tocdoc",
   "author": {
     "name": "Joshua Clanton",
