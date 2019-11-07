@@ -41,7 +41,7 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "marked": "~0.2.10",
+    "marked": "~0.7.0",
     "toc": "~0.3.0",
     "lodash": "~2.2.1"
   }
